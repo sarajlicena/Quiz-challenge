@@ -76,9 +76,10 @@ export const Profile =  () => {
   useEffect(() => {
     if(easy && easy.length>0) {
       const easyTotal = easy.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-      const easyMax = easy.reduce((max, score) => Math.max(max, score), 0);
+      const easyMax = easy.length*300;
       setEasyScore(((easyTotal/easyMax)*100).toFixed(2));
       console.log("Sum of easy array:", easyTotal);
+      console.log("Easy max:", easyMax);
     } else {
       setEasyScore(0)
     }
@@ -89,7 +90,7 @@ export const Profile =  () => {
     console.log("Medium scores:", medium); 
     if (medium && medium.length>0) {
       const mediumTotal = medium.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-      const mediumMax = medium.length * 320; 
+      const mediumMax = medium.length * 300; 
       setMediumScore(((mediumTotal/mediumMax)*100).toFixed(2));
       console.log("Sum of medium array:", mediumMax);
     } else {
@@ -102,7 +103,7 @@ export const Profile =  () => {
   useEffect(() => {
     if(hard && hard.length>0) {
       const hardTotal = hard.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-      const hardMax = hard.reduce((max, score) => Math.max(max, score), 0);
+      const hardMax = hard.length * 300;
       setHardScore(((hardTotal/hardMax)*100).toFixed(2));
       console.log("Sum of hard array:", hardTotal);
     } else {
